@@ -1,0 +1,92 @@
+namespace WinFormsApp
+{
+    public partial class Factorial : Form
+    {
+        public Factorial()
+        {
+            InitializeComponent();
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtnum.Text, out int value1) && int.TryParse(textBox1.Text, out int value2))
+            {
+                lblmax.Text = "Max number is " + Convert.ToString(Math.Max(value1, value2));
+
+                lblpow.Text = "Power of numbers is " + Convert.ToString(Math.Pow(value1, value2));
+
+            }
+            else
+            {
+                MessageBox.Show("Enter whole number", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void Save2_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtnum.Text, out int value1) && int.TryParse(textBox1.Text, out int value2))
+            {
+                int counter1 = 0,counter2 = 0;
+
+                for (int i = 2; i < value1; i++)
+                {
+                    if (value1 % i == 0)
+                    {
+                        counter1++;
+                    }
+
+                }
+                for (int i = 2; i < value2; i++)
+                {
+                    if (value2 % i == 0)
+                    {
+                        counter2++;
+                    }
+
+                }
+                if (counter1 != 0)
+                {
+                    lblprime1.Text = "Number 1 is not prime";
+                }
+                else
+                {
+                    lblprime1.Text = "Number 1 is prime";
+                }
+                if (counter2 != 0)
+                {
+                    lblprime2.Text = "Number 2 is not prime";
+                }
+                else
+                {
+                    lblprime2.Text = "Number 2 is prime";
+                }
+
+                int total1 = 1,total2 = 1;
+
+                for (int i = 2;i <= value1; i++)
+                {
+                    total1 *= i;
+                }
+                for (int i = 2; i <= value2; i++)
+                {
+                    total2 *= i;
+                }
+
+                lblfac1.Text = "Factorial of number 1 is: " + total1;
+                lblfac2.Text = "Factorial of number 2 is: " + total2;
+            }
+            else
+            {
+                MessageBox.Show("Enter whole number", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void lblpow_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
